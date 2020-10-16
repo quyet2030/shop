@@ -1,0 +1,20 @@
+@mixin landing-component-theme($theme) {
+  $primary: map-get($theme, primary);
+  $background: map-get($theme, background);
+  $startColor: mat-color($primary, 400);
+  $endColor: mat-color($primary, 900);
+  $background-color: mat-color($background, dialog);
+
+  tuongantech-landing {
+    background: linear-gradient(
+        to bottom,
+        rgba($startColor, 0.95),
+        rgba($endColor, 0.95)
+      ),
+      url(/assets/images/home/world-travel.png);
+    .email-control {
+      background-color: $background-color;
+      &__input { background-color: transparent; }
+    }
+  }
+}

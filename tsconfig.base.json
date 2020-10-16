@@ -1,0 +1,28 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@tuongantech/home/feature": ["libs/home/feature/src/index.ts"],
+      "@tuongantech/theme-picker": ["libs/theme-picker/src/index.ts"],
+      "@tuongantech/angular-material": ["libs/angular-material/src/index.ts"],
+      "@tuongantech/config/shop": ["libs/config/shop/src/index.ts"],
+      "@tuongantech/shared/shared": ["libs/shared/shared/src/index.ts"],
+      "@tuongantech/language-picker": ["libs/language-picker/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,17 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  aria-label="Example icon-button with a menu"
+>
+  <mat-icon>format_paint</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <mat-grid-list cols="2">
+    <mat-grid-tile *ngFor="let t of themes">
+      <button mat-mini-fab [style.backgroundColor]="t.primary" (click)="changeTheme(t)">
+        <mat-icon [style.color]="t.accent" *ngIf="t == selectedTheme">check</mat-icon>
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
+</mat-menu>
+ 

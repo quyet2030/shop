@@ -1,0 +1,49 @@
+<!-- <div class="btn-group">
+  <button class="btn-theme">THEME</button>
+  <button class="btn-lang">LANG</button>
+</div>
+<div class="cta">
+  <h2>WELCOME TO TUONG AN TECHNOLOGY WEBSITE</h2>
+  <p>
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis vitae
+    ut expedita. Nesciunt quo vitae eius alias culpa blanditiis ea.
+  </p>
+  <form class="welcome-form">
+    <label for="email">Input your email</label><br>
+    <input type="email" name="email" id="email" />
+  </form>
+</div> -->
+<div class="landing-header">
+  <tuongantech-theme-picker></tuongantech-theme-picker>
+  <tuongantech-language-picker></tuongantech-language-picker>
+</div>
+<div class="landing-body">
+  <div class="sign-up">
+    <h2
+      i18n="greeting from Tuong An Technology company@@applicationName"
+      class="mat-display-1"
+      style="margin-bottom: 10px;"
+    >
+      WELCOME TO TUONG-AN-TECHNOLOGY CO.,LTD
+    </h2>
+    <p i18n="sign up paragraph@@signupParapgraph" class="mat-body">
+      A Japanese, European cutting tools supplier, who aims to bring to
+      customers the GREAT, BEST, PRODUCTIVITY tool solutions meet exactly to
+      customers's needs
+    </p>
+    <div class="email-control">
+      <i class="email-control__icon">IC</i>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="email-control__input"
+      />
+      <button class="email-control__btn">Sign Up</button>
+    </div>
+    <div class="mat-body" style="margin: 2rem;">
+      <div>Date: {{ data.today | date:'shortDate' }}</div>
+      <div>Currency: {{ data.number | currency}}</div>
+    </div>
+  </div>
+</div>

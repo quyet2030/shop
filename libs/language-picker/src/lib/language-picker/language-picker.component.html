@@ -1,0 +1,14 @@
+<button
+  mat-icon-button
+  [matMenuTriggerFor]="menu"
+  aria-label="Example icon-button with a menu"
+>
+  <mat-icon>language</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item *ngFor="let l of languages" (click)="changeLang(l)">
+    <mat-icon *ngIf="l == selectedLang; else noIcon">check</mat-icon>
+    <span>{{ l.name }}</span>
+  </button>
+</mat-menu>
+<ng-template #noIcon><mat-icon></mat-icon></ng-template>

@@ -1,0 +1,399 @@
+{
+  "version": 1,
+  "projects": {
+    "shop": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/shop",
+      "sourceRoot": "apps/shop/src",
+      "prefix": "tuongantech",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/shop",
+            "index": "apps/shop/src/index.html",
+            "main": "apps/shop/src/main.ts",
+            "polyfills": "apps/shop/src/polyfills.ts",
+            "tsConfig": "apps/shop/tsconfig.app.json",
+            "aot": true,
+            "extractCss": true,
+            "assets": [
+              "apps/shop/src/favicon.ico",
+              "apps/shop/src/assets",
+              "apps/shop/src/env.js"
+            ],
+            "styles": [
+              "apps/shop/src/styles.scss",
+              {
+                "input": "apps/shop/src/themes/amber-green.scss",
+                "bundleName": "assets/themes/amber-green",
+                "inject": false
+              },
+              {
+                "input": "apps/shop/src/themes/dark-yellow.scss",
+                "bundleName": "assets/themes/dark-yellow",
+                "inject": false
+              },
+              {
+                "input": "apps/shop/src/themes/deep-purple-green.scss",
+                "bundleName": "assets/themes/deep-purple-green",
+                "inject": false
+              },
+              {
+                "input": "apps/shop/src/themes/pink-blue-gray.scss",
+                "bundleName": "assets/themes/pink-blue-gray",
+                "inject": false
+              }
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": ["libs/shared/styles/src"]
+            },
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/shop/src/environments/environment.ts",
+                  "with": "apps/shop/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            },
+            "en": {
+              "aot": true,
+              "outputPath": "dist/shop-en",
+              "i18nFile": "apps/shop/src/i18n/messages.en.xlf",
+              "i18nLocale": "en"
+            },
+            "vn": {
+              "aot": true,
+              "outputPath": "dist/shop-vn",
+              "i18nFile": "apps/shop/src/i18n/messages.vn.xlf",
+              "i18nLocale": "vn"
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "shop:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "shop:build:production"
+            },
+            "en": {
+              "browserTarget": "shop:build:en"
+            },
+            "vn": {
+              "browserTarget": "shop:build:vn"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "shop:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/shop/tsconfig.app.json",
+              "apps/shop/tsconfig.spec.json",
+              "apps/shop/tsconfig.editor.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/shop/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/shop/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "shop-e2e": {
+      "root": "apps/shop-e2e",
+      "sourceRoot": "apps/shop-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/shop-e2e/cypress.json",
+            "tsConfig": "apps/shop-e2e/tsconfig.e2e.json",
+            "devServerTarget": "shop:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "shop:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/shop-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/shop-e2e/**/*"]
+          }
+        }
+      }
+    },
+    "home-feature": {
+      "projectType": "library",
+      "root": "libs/home/feature",
+      "sourceRoot": "libs/home/feature/src",
+      "prefix": "tuongantech",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/home/feature/tsconfig.lib.json",
+              "libs/home/feature/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/home/feature/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/home/feature/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "theme-picker": {
+      "projectType": "library",
+      "root": "libs/theme-picker",
+      "sourceRoot": "libs/theme-picker/src",
+      "prefix": "tuongantech",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/theme-picker/tsconfig.lib.json",
+              "libs/theme-picker/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/theme-picker/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/theme-picker/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "angular-material": {
+      "projectType": "library",
+      "root": "libs/angular-material",
+      "sourceRoot": "libs/angular-material/src",
+      "prefix": "tuongantech",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/angular-material/tsconfig.lib.json",
+              "libs/angular-material/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/angular-material/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/angular-material/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "config-shop": {
+      "projectType": "library",
+      "root": "libs/config/shop",
+      "sourceRoot": "libs/config/shop/src",
+      "prefix": "tuongantech",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/config/shop/tsconfig.lib.json",
+              "libs/config/shop/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/config/shop/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/config/shop/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared-shared": {
+      "projectType": "library",
+      "root": "libs/shared/shared",
+      "sourceRoot": "libs/shared/shared/src",
+      "prefix": "tuongantech",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/shared/tsconfig.lib.json",
+              "libs/shared/shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/shared/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/shared/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "language-picker": {
+      "projectType": "library",
+      "root": "libs/language-picker",
+      "sourceRoot": "libs/language-picker/src",
+      "prefix": "tuongantech",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/language-picker/tsconfig.lib.json",
+              "libs/language-picker/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/language-picker/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/language-picker/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "tslint"
+      },
+      "library": {
+        "linter": "tslint"
+      }
+    },
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "shop"
+}
