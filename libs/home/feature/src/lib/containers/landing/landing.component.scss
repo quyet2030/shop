@@ -20,18 +20,4 @@
   margin-right: 30%;
   flex: 0 0 150px;
 }
-.email-control {
-  padding: 8px;
-  border-radius: 20px;
-  display: flex;
-  &__icon {
-    flex: 0 0 auto;
-  }
-  &__input {
-    flex: 1 0 auto;
-    border-style: none; outline: none;
-  }
-  &__btn {
-    flex: 0 0 auto;
-  }
-}
+

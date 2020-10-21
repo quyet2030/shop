@@ -47,6 +47,9 @@
     },
     "language-picker": {
       "tags": []
+    },
+    "email-input": {
+      "tags": []
     }
   }
 }

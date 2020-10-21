@@ -347,6 +347,36 @@
           "style": "scss"
         }
       }
+    },
+    "email-input": {
+      "projectType": "library",
+      "root": "libs/email-input",
+      "sourceRoot": "libs/email-input/src",
+      "prefix": "tuongantech",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/email-input/tsconfig.lib.json",
+              "libs/email-input/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/email-input/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/email-input/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

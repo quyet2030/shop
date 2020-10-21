@@ -7,5 +7,6 @@ module.exports = {
     '<rootDir>/libs/config/shop',
     '<rootDir>/libs/shared/shared',
     '<rootDir>/libs/language-picker',
+    '<rootDir>/libs/email-input',
   ],
 };

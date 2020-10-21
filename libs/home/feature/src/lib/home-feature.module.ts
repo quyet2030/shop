@@ -5,11 +5,13 @@ import { LandingComponent } from './containers/landing/landing.component';
 // import { ThemePickerModule} from '../../../../theme-picker/src/lib/theme-picker.module';
 import { ThemePickerModule} from '@tuongantech/theme-picker';
 import { LanguagePickerModule } from '@tuongantech/language-picker';
+import { EmailInputModule } from '@tuongantech/email-input';
 
 @NgModule({
   imports: [ CommonModule, 
     ThemePickerModule,
-    LanguagePickerModule,  
+    LanguagePickerModule,
+    EmailInputModule,
     RouterModule.forChild([
       {path: '', pathMatch: 'full', component: LandingComponent} ]),
   ],

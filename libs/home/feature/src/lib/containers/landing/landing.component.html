@@ -31,19 +31,10 @@
       customers the GREAT, BEST, PRODUCTIVITY tool solutions meet exactly to
       customers's needs
     </p>
-    <div class="email-control">
-      <i class="email-control__icon">IC</i>
-      <input
-        type="email"
-        name="email"
-        id="email"
-        class="email-control__input"
-      />
-      <button class="email-control__btn">Sign Up</button>
-    </div>
-    <div class="mat-body" style="margin: 2rem;">
-      <div>Date: {{ data.today | date:'shortDate' }}</div>
-      <div>Currency: {{ data.number | currency}}</div>
-    </div>
+    <tuongantech-email-input></tuongantech-email-input>
+    <!-- <div class="mat-body" style="margin: 2rem;">
+      <div>Date: {{ data.today | date: 'shortDate' }}</div>
+      <div>Currency: {{ data.number | currency }}</div>
+    </div> -->
   </div>
 </div>

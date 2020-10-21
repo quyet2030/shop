@@ -1,0 +1,7 @@
+<div class="email-control">
+    <i class="email-control__icon">IC</i>
+    <input type="email" name="email" id="email" class="email-control__input"
+           [formControl]="emailControl" />
+    <button class="email-control__btn" type="submit">Sign Up</button>
+</div>
+<pre style="margin-top: 2rem; font-size: 2rem;">{{emailControl.value}}</pre>
