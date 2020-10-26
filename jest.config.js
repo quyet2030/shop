@@ -8,5 +8,6 @@ module.exports = {
     '<rootDir>/libs/shared/shared',
     '<rootDir>/libs/language-picker',
     '<rootDir>/libs/email-input',
+    '<rootDir>/libs/shared/data-access',
   ],
 };

@@ -22,7 +22,10 @@
       "@tuongantech/config/shop": ["libs/config/shop/src/index.ts"],
       "@tuongantech/shared/shared": ["libs/shared/shared/src/index.ts"],
       "@tuongantech/language-picker": ["libs/language-picker/src/index.ts"],
-      "@tuongantech/email-input": ["libs/email-input/src/index.ts"]
+      "@tuongantech/email-input": ["libs/email-input/src/index.ts"],
+      "@tuongantech/shared/data-access": [
+        "libs/shared/data-access/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
