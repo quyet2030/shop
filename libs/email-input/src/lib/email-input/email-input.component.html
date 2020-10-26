@@ -1,7 +1,21 @@
-<div class="email-control">
-    <i class="email-control__icon">IC</i>
-    <input type="email" name="email" id="email" class="email-control__input"
-           [formControl]="emailControl" />
-    <button class="email-control__btn" type="submit">Sign Up</button>
+<div class="email-control" 
+  [@focusedAnimation]="{value: focusedState$ | async, params: {shadowRgb: '0,0,256'} }" 
+  (mouseenter)="updateFocuedSub(1)" (mouseleave)="updateFocuedSub(-1)">
+  <mat-icon>mail</mat-icon>
+  <i class="email-control__icon"></i>
+  <input
+    type="email"
+    name="email"
+    id="email"
+    class="email-control__input"
+    [formControl]="emailControl"
+    placeholder="let's get started with your email..."
+    (focus)="updateFocuedSub(1)" (blur)="updateFocuedSub(-1)"
+  />
+  <button mat-raised-button class="email-control__btn" type="submit"
+  (focus)="updateFocuedSub(1)" (blur)="updateFocuedSub(-1)">
+    SIGN UP
+    <mat-icon>arrow_forward</mat-icon>
+  </button>
 </div>
-<pre style="margin-top: 2rem; font-size: 2rem;">{{emailControl.value}}</pre>
+<pre style="margin-top: 2rem; font-size: 2rem;">{{ emailControl.value }}</pre>

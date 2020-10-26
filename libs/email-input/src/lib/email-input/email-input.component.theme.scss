@@ -1,0 +1,23 @@
+@mixin email-input-component-theme($theme) {
+    $primary: map-get($theme, primary);
+    $startColor: mat-color($primary, 400);
+    $endColor: mat-color($primary, 900);
+    $foreground: map-get($theme, foreground);
+    // $background: map-get($theme, background);
+    // $startColor: mat-color($primary, 400);
+    // $endColor: mat-color($primary, 900);
+    // $background-color: mat-color($background, dialog);
+  
+    tuongantech-email-input {
+        .email-control {
+            &__input {
+                font-size: mat-font-size($typography-config, body-1);
+                font-family: mat-font-family($typography-config);
+                color: mat-color($foreground, base);
+            }
+            &__btn {
+                background: linear-gradient(to right, rgba($startColor, 0.95), rgba($endColor, 0.95));
+            }
+        }
+    }
+  }

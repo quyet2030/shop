@@ -6,9 +6,10 @@ import { LandingComponent } from './containers/landing/landing.component';
 import { ThemePickerModule} from '@tuongantech/theme-picker';
 import { LanguagePickerModule } from '@tuongantech/language-picker';
 import { EmailInputModule } from '@tuongantech/email-input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [ CommonModule, 
+  imports: [ CommonModule, ReactiveFormsModule,
     ThemePickerModule,
     LanguagePickerModule,
     EmailInputModule,

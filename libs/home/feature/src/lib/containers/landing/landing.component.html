@@ -31,7 +31,10 @@
       customers the GREAT, BEST, PRODUCTIVITY tool solutions meet exactly to
       customers's needs
     </p>
-    <tuongantech-email-input></tuongantech-email-input>
+    <tuongantech-email-input
+      [formControl]="emailControl"
+      [debounceTime]="300"
+    ></tuongantech-email-input>
     <!-- <div class="mat-body" style="margin: 2rem;">
       <div>Date: {{ data.today | date: 'shortDate' }}</div>
       <div>Currency: {{ data.number | currency }}</div>
